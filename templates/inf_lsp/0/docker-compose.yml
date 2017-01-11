@@ -2,11 +2,11 @@ logstash:
   restart: always
   tty: true
   volumes:
-    - /opt/safesystems/logstash/conf.d:/etc/logstash/
+    - /opt/safesystems/logstash/:/etc/logstash/
   command:
   - logstash
   - -f
-  - /etc/logstash/
+  - /etc/logstash/conf.d/
   image: safesystems/logstash:latest
   stdin_open: true
   labels:
