@@ -1,0 +1,7 @@
+name: Safe Systems Logstash
+description: |
+    Logstash Message Parser
+version: v0.1
+category: Message Parsing
+maintainer: Reid Riley <reid.riley@safesystems.com>
+projectURL: http://www.safesystems.com

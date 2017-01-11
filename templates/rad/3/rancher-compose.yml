@@ -1,0 +1,82 @@
+.catalog:
+  name: "SafeSytems_RAD"
+  version: "5.0.4-safesystems"
+  description: "Safe Systems Logstash for RAD"
+  questions:
+    - variable: "collector_inputs"
+      description: |
+        Logstash collection tier inputs. These will be added
+        directly to input { } section of logstash.conf
+      label: "Logstash inputs"
+      type: "multiline"
+      required: false
+      default: |
+        file {
+          path => ["/opt/safesystems/logs/*"]
+          codec => "json"
+        }
+    - variable: "indexer_filters"
+      description: |
+        Logstash indexing tier filters. These will be added
+        directly to filter { } section of logstash.conf
+      label: "Logstash filters"
+      type: "multiline"
+      required: false
+      default: |
+        mutate {
+          add_field => {"nc_id" => "${netcomply_id_var}"}
+          add_field => {"aws_access_id" => "${aws_access_id_var}"}
+          add_field => {"aws_queue_name" => "${aws_queue_name_var}"}
+          add_field => {"aws_secret_access_key" => "${aws_secret_access_key_var}"}
+        }
+    - variable: "indexer_outputs"
+      description: |
+        Logstash indexing tier outputs. These will be added
+        directly to output { } section of logstash.conf
+      label: "Logstash outputs"
+      type: "multiline"
+      required: false
+      default: |
+        sqs {
+          queue => "${aws_queue_name_var}"
+          access_key_id => "${aws_access_id_var}"
+          secret_access_key => "${aws_secret_access_key_var}"
+          codec => "json"
+        }
+    - variable: "aws_secret_access_key"
+      description: |
+        AWS Secret Access Key for SQS queue
+      label: "aws_secret_access_key"
+      type: "string"
+      required: false
+      default: ""
+    - variable: "aws_access_id"
+      description: |
+        AWS Access ID for SQS queue
+      label: "aws_access_id"
+      type: "string"
+      required: false
+      default: ""
+    - variable: "aws_queue_name"
+      description: |
+        The AWS SQS queue name
+      label: "aws_queue_name"
+      type: "string"
+      required: false
+      default: ""
+    - variable: "netcomply_id"
+      description: |
+        The Netcomply ID of the Customer
+      label: "Netcomply Identifier"
+      default: "enter NC_ID"
+      required: false
+      type: "string"
+logstash-indexer:
+  metadata:
+    logstash:
+      inputs: |
+        ${collector_inputs}
+      filters: |
+        ${indexer_filters}
+      outputs: |
+        ${indexer_outputs}

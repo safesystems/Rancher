@@ -1,0 +1,47 @@
+logstash-indexer-config:
+  restart: always
+  image: safesystems/logstash-config
+  labels:
+    io.rancher.container.hostname_override: container_name
+opencanary:
+  restart: always
+  image: safesystems/opencanary:latest
+  ports: 
+    - "21:21"
+    - "139:139"
+    - "445:445"
+    - "1433:1433"
+    - "3389:3389"
+  volumes: 
+    - /opt/safesystems/logs:/var/log
+  labels:
+    io.rancher.container.hostname_override: container_name
+portscan:
+  restart: always
+  image: safesystems/portscan:latest
+  volumes: 
+    - /opt/safesystems/logs:/var/log/
+  net: "host"
+  labels:
+    io.rancher.container.hostname_override: container_name
+logstash-indexer:
+  restart: always
+  tty: true
+  volumes_from:
+  - logstash-indexer-config
+  volumes:
+    - /opt/safesystems/logs:/opt/safesystems/logs
+  command:
+  - logstash
+  - -f
+  - /etc/logstash/logstash.conf
+  image: safesystems/logstash:latest
+  stdin_open: true
+  environment:
+    netcomply_id_var: "${netcomply_id}"
+    aws_access_id_var: "${aws_access_id}"
+    aws_secret_access_key_var: "${aws_secret_access_key}"
+    aws_queue_name_var: "${aws_queue_name}"
+  labels:
+    io.rancher.sidekicks: logstash-indexer-config, opencanary
+    io.rancher.container.hostname_override: container_name

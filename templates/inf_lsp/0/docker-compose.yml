@@ -1,0 +1,13 @@
+logstash:
+  restart: always
+  tty: true
+  volumes:
+    - /opt/safesystems/logstash/conf.d:/etc/logstash/
+  command:
+  - logstash
+  - -f
+  - /etc/logstash/
+  image: safesystems/logstash:latest
+  stdin_open: true
+  labels:
+    io.rancher.container.hostname_override: container_name

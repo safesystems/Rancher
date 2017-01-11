@@ -1,0 +1,26 @@
+logstash-config:
+  restart: always
+  image: safesystems/logstash-config
+  labels:
+    io.rancher.container.hostname_override: container_name
+logstash:
+  restart: always
+  tty: true
+  volumes_from:
+  - logstash-config
+  volumes:
+    - /opt/safesystems/logs:/opt/safesystems/logs
+  command:
+  - logstash
+  - -f
+  - /etc/logstash/logstash.conf
+  image: safesystems/logstash:latest
+  stdin_open: true
+  environment:
+    netcomply_id_var: "${netcomply_id}"
+    aws_access_id_var: "${aws_access_id}"
+    aws_secret_access_key_var: "${aws_secret_access_key}"
+    aws_queue_name_var: "${aws_queue_name}"
+  labels:
+    io.rancher.sidekicks: logstash-config
+    io.rancher.container.hostname_override: container_name

@@ -1,0 +1,7 @@
+name: Safe Systems Infrastructure Logstash Processor
+description: |
+    Logstash Message Parser
+version: v0.1
+category: Message Parsing
+maintainer: Brian Brannon <brian.brannon@safesystems.com>
+projectURL: http://www.safesystems.com

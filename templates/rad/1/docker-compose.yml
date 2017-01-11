@@ -1,0 +1,24 @@
+logstash-indexer-config:
+  restart: always
+  image: rancher/logstash-config:v0.2.0
+  labels:
+    io.rancher.container.hostname_override: container_name
+logstash-indexer:
+  restart: always
+  tty: true
+  volumes_from:
+  - logstash-indexer-config
+  command:
+  - logstash
+  - -f
+  - /etc/logstash
+  image: logstash:latest
+  stdin_open: true
+  environment:
+    netcomply_id1: "${netcomply_id}"
+    aws_access_id1: "${aws_access_id}"
+    aws_secret_access_key1: "${aws_secret_access_key}"
+    aws_queue_name1: "${aws_queue_name}"
+  labels:
+    io.rancher.sidekicks: logstash-indexer-config
+    io.rancher.container.hostname_override: container_name
