@@ -29,9 +29,7 @@ portscan:
     - /opt/safesystems/logs:/var/log/:rw
   net: host
   command:
-  - sed -i
-  - "/exception/ s/^\(.*\)\(]\)/\1, %{portscan_ip_exceptions}\2/"
-  - /usr/local/bin/portscan.py
+  - sed -i "/exception/ s/^\(.*\)\(]\)/\1, %{portscan_ip_exceptions}\2/" /usr/local/bin/portscan.py
   - &&
   - python
   - /usr/local/bin/portscan.py
