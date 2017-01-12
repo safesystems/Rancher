@@ -1,40 +1,40 @@
-opencanary:
-  restart: always
-  image: safesystems/opencanary:latest
+opencanary: 
+  image: "safesystems/opencanary:latest"
+  labels: 
+    io.rancher.container.hostname_override: container_name
+    io.rancher.container.pull_image: always
   ports: 
     - "21:21"
     - "1433:1433"
     - "3389:3389"
+  restart: always
   volumes: 
-    - /opt/safesystems/logs:/var/log:rw
-  labels:
+    - "/opt/safesystems/logs:/var/log:rw"
+portscan: 
+  command: 
+    - sed
+    - "-i"
+    - "\\\"/exception/ s/^\\(.*\\)\\(]\\)/\\1, %{portscan_ip_exceptions}\\2/\""
+    - /usr/local/bin/portscan.py
+    - "&&"
+    - python
+    - /usr/local/bin/portscan.py
+  image: "safesystems/portscan:test"
+  labels: 
+    io.rancher.container.hostname_override: container_name
+  net: host
+  restart: always
+  volumes: 
+    - "/opt/safesystems/logs:/var/log/:rw"
+samba: 
+  image: "safesystems/samba:latest"
+  labels: 
     io.rancher.container.hostname_override: container_name
     io.rancher.container.pull_image: always
-samba:
-  restart: always
-  image: safesystems/samba:latest
   ports: 
     - "139:139"
     - "445:445"
-  volumes: 
-    - /opt/safesystems/logs/samba-audit.log:/var/log/samba-audit.log:rw
-    - /opt/safesystems/samba:/opt/safesystems/samba/:rw
-  labels:
-    io.rancher.container.hostname_override: container_name
-    io.rancher.container.pull_image: always
-portscan:
   restart: always
-  image: safesystems/portscan:test
   volumes: 
-    - /opt/safesystems/logs:/var/log/:rw
-  net: host
-  command:
-  - sed 
-  - -i 
-  - "/exception/ s/^\(.*\)\(]\)/\1, %{portscan_ip_exceptions}\2/"
-  - /usr/local/bin/portscan.py
-  - "&&"
-  - python
-  - /usr/local/bin/portscan.py
-  labels:
-    io.rancher.container.hostname_override: container_name
+    - "/opt/safesystems/logs/samba-audit.log:/var/log/samba-audit.log:rw"
+    - "/opt/safesystems/samba:/opt/safesystems/samba/:rw"
