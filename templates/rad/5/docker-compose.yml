@@ -1,4 +1,3 @@
---- 
 opencanary: 
   image: "safesystems/opencanary:latest"
   labels: 
@@ -13,10 +12,7 @@ opencanary:
     - "/opt/safesystems/logs:/var/log:rw"
 portscan: 
   command: 
-    - sed
-    - -i
-    - "\\\"/exception/ s/^\\(.*\\)\\(]\\)/\\1, %{portscan_ip_exceptions}\\2/\""
-    - /usr/local/bin/portscan.py
+    - "sed -i \"\\\\\\\"/exception/ s/^\\\\(.*\\\\)\\\\(]\\\\)/\\\\1, %{portscan_ip_exceptions}\\\\2/\\\" /usr/local/bin/portscan.py\""
     - "&&"
     - python
     - /usr/local/bin/portscan.py
@@ -39,3 +35,4 @@ samba:
   volumes: 
     - "/opt/safesystems/logs/samba-audit.log:/var/log/samba-audit.log:rw"
     - "/opt/safesystems/samba:/opt/safesystems/samba/:rw"
+
