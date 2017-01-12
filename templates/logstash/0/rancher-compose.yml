@@ -25,9 +25,7 @@
       default: |
         mutate {
           add_field => {"nc_id" => "${netcomply_id_var}"}
-          add_field => {"aws_access_id" => "${aws_access_id_var}"}
           add_field => {"aws_queue_name" => "${aws_queue_name_var}"}
-          add_field => {"aws_secret_access_key" => "${aws_secret_access_key_var}"}
         }
     - variable: "logstash_outputs"
       description: |
