@@ -1,0 +1,13 @@
+.catalog:
+  name: "SafeSytems_RAD"
+  version: "5.0.6-safesystems"
+  description: "Safe Systems RAD Services"
+  questions:
+    - variable: "portscan_ip_exceptions"
+      description: |
+        These IP's will be excluded from being reported
+      label: "Portscan IP Exclusions"
+      type: "string"
+      required: false
+      default: |
+        '204.193.139.159', '8.8.8.8'
