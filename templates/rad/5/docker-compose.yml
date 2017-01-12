@@ -12,10 +12,10 @@ opencanary:
     - "/opt/safesystems/logs:/var/log:rw"
 portscan: 
   command: 
-    - "sed -i \"\\\\\\\"/exception/ s/^\\\\(.*\\\\)\\\\(]\\\\)/\\\\1, %{portscan_ip_exceptions}\\\\2/\\\" /usr/local/bin/portscan.py\""
+    - "sed -i \"\\\\\\\"/exception/ s/^\\\\(.*\\\\)\\\\(]\\\\)/\\\\1, %{portscan_ip_exceptions}\\\\2/\\\" /opt/psscan/portscan.py\""
     - "&&"
     - python
-    - /usr/local/bin/portscan.py
+    - /opt/psscan/portscan.py
   image: "safesystems/portscan:test"
   labels: 
     io.rancher.container.hostname_override: container_name
