@@ -1,3 +1,4 @@
+--- 
 opencanary: 
   image: "safesystems/opencanary:latest"
   labels: 
@@ -13,7 +14,7 @@ opencanary:
 portscan: 
   command: 
     - sed
-    - "-i"
+    - -i
     - "\\\"/exception/ s/^\\(.*\\)\\(]\\)/\\1, %{portscan_ip_exceptions}\\2/\""
     - /usr/local/bin/portscan.py
     - "&&"
