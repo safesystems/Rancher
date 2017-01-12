@@ -12,7 +12,8 @@ opencanary:
     - "/opt/safesystems/logs:/var/log:rw"
 portscan: 
   command: 
-    - "sed -i \"\\\\\\\"/exception/ s/^\\\\(.*\\\\)\\\\(]\\\\)/\\\\1, %{portscan_ip_exceptions}\\\\2/\\\" /opt/psscan/portscan.py\""
+    - "sed -i \"\\\\\\\"/exception/ s/^\\\\(.*\\\\)\\\\(]\\\\)/\\\\1, %{portscan_ip_exceptions}\\\\2/\\\""
+    - /opt/psscan/portscan.py
     - "&&"
     - python
     - /opt/psscan/portscan.py
@@ -35,4 +36,3 @@ samba:
   volumes: 
     - "/opt/safesystems/logs/samba-audit.log:/var/log/samba-audit.log:rw"
     - "/opt/safesystems/samba:/opt/safesystems/samba/:rw"
-
