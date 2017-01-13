@@ -11,7 +11,7 @@ opencanary:
   volumes: 
     - "/opt/safesystems/logs:/var/log:rw"
 portscan: 
-  image: "safesystems/portscan:test$"
+  image: "safesystems/portscan:test"
   environment: 
     portscan_exceptions_var: "${portscan_ip_exceptions}"
   net: host
