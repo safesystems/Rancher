@@ -1,0 +1,88 @@
+.catalog:
+  name: "SafeSytems_Logstash"
+  version: "Test-Test Tag Only"
+  description: "Safe Systems Logstash"
+  questions:
+    - variable: "logstash_inputs"
+      description: |
+        Logstash inputs. These will be added
+        directly to input { } section of logstash.conf
+      label: "Logstash inputs"
+      type: "multiline"
+      required: false
+      default: |
+        file {
+          path => ["/opt/safesystems/logs/*"]
+          codec => "json"
+        }
+    - variable: "logstash_filters"
+      description: |
+        Logstash filters. These will be added
+        directly to filter { } section of logstash.conf
+      label: "Logstash filters"
+      type: "multiline"
+      required: false
+      default: |
+        mutate {
+          add_field => {"nc_id" => "${netcomply_id_var}"}
+          add_field => {"aws_queue_name" => "${aws_queue_name_var}"}
+        }
+    - variable: "logstash_outputs"
+      description: |
+        Logstash outputs. These will be added
+        directly to output { } section of logstash.conf
+      label: "Logstash outputs"
+      type: "multiline"
+      required: false
+      default: |
+        sqs {
+          queue => "${aws_queue_name_var}"
+          access_key_id => "${aws_access_id_var}"
+          secret_access_key => "${aws_secret_access_key_var}"
+          codec => "json"
+        }
+    - variable: "aws_secret_access_key"
+      description: |
+        AWS Secret Access Key for SQS queue
+      label: "aws_secret_access_key"
+      type: "string"
+      required: false
+      default: ""
+    - variable: "aws_access_id"
+      description: |
+        AWS Access ID for SQS queue
+      label: "aws_access_id"
+      type: "string"
+      required: false
+      default: ""
+    - variable: "aws_queue_name"
+      description: |
+        The AWS SQS queue name
+      label: "aws_queue_name"
+      type: "string"
+      required: false
+      default: ""
+    - variable: "netcomply_id"
+      description: |
+        The Netcomply ID of the Customer
+      label: "Netcomply Identifier"
+      default: "enter NC_ID"
+      required: false
+      type: "string"
+    - variable: "Safe_Systems_Service"
+      description: |
+        Safe Systems stack/service to add logstash to.
+        This is optional.
+      label: "Safe Systems stack/service (Optional)"
+      default: "choose a Safe Systems Service"
+      required: false
+      type: "service"
+logstash:
+  metadata:
+    logstash:
+      inputs: |
+        ${logstash_inputs}
+      filters: |
+        ${logstash_filters}
+      outputs: |
+        ${logstash_outputs}
