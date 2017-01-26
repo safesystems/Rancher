@@ -3,6 +3,7 @@ opencanary:
   labels: 
     io.rancher.container.hostname_override: container_name
     io.rancher.container.pull_image: always
+  tty: true
   ports: 
     - "21:21"
     - "1433:1433"
@@ -14,6 +15,7 @@ portscan:
   image: "safesystems/portscan:latest"
   environment: 
     portscan_exceptions_var: "${portscan_ip_exceptions}"
+  tty: true
   net: host
   restart: always
   volumes: 
@@ -25,6 +27,7 @@ samba:
   labels: 
     io.rancher.container.hostname_override: container_name
     io.rancher.container.pull_image: always
+  tty: true
   ports: 
     - "139:139"
     - "445:445"
