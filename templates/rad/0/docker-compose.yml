@@ -3,7 +3,7 @@ opencanary:
   labels: 
     io.rancher.container.hostname_override: container_name
     io.rancher.container.pull_image: always
-    io.rancher.schedular.affinity:host_label: location="${service_location}"
+    io.rancher.scheduler.affinity:host_label: location="${service_location}"
   tty: true
   ports: 
     - "21:21"
@@ -23,14 +23,14 @@ portscan:
     - "/opt/safesystems/logs:/var/log/:rw"
   labels: 
     io.rancher.container.hostname_override: container_name
-    io.rancher.schedular.affinity:host_label: location="${service_location}"
+    io.rancher.scheduler.affinity:host_label: location="${service_location}"
     io.rancher.container.pull_image: always
 samba: 
   image: "safesystems/samba:latest"
   labels: 
     io.rancher.container.hostname_override: container_name
     io.rancher.container.pull_image: always
-    io.rancher.schedular.affinity:host_label: location="${service_location}"
+    io.rancher.scheduler.affinity:host_label: location="${service_location}"
   tty: true
   ports: 
     - "139:139"
