@@ -3,6 +3,7 @@ logstash-config:
   image: safesystems/logstash-config
   labels:
     io.rancher.container.hostname_override: container_name
+    io.rancher.schedular.affinity:host_label: location="${service_location}"
 logstash:
   restart: always
   tty: true
@@ -24,3 +25,4 @@ logstash:
   labels:
     io.rancher.sidekicks: logstash-config
     io.rancher.container.hostname_override: container_name
+    io.rancher.schedular.affinity:host_label: location="${service_location}"

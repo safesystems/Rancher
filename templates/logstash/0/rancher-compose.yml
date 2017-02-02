@@ -67,6 +67,15 @@
       default: "enter NC_ID"
       required: false
       type: "string"
+    - variable: "service_location"
+      description: |
+        This is location where the service will be deployed.
+        This must match the location label value you entered for the host.
+      label: "Service Location"
+      type: "string"
+      required: false
+      default: |
+        Operations
     - variable: "Safe_Systems_Service"
       description: |
         Safe Systems stack/service to add logstash to.
