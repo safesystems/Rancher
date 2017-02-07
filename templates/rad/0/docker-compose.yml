@@ -1,5 +1,8 @@
 opencanary: 
   image: "safesystems/opencanary:latest"
+  log_opt:
+    max-size: 50m
+    max-file: 3
   labels: 
     io.rancher.container.hostname_override: container_name
     io.rancher.container.pull_image: always
@@ -14,6 +17,9 @@ opencanary:
     - "/opt/safesystems/logs:/var/log:rw"
 portscan: 
   image: "safesystems/portscan:latest"
+  log_opt:
+    max-size: 50m
+    max-file: 3
   environment: 
     portscan_exceptions_var: "${portscan_ip_exceptions}"
   tty: true
@@ -27,6 +33,9 @@ portscan:
     io.rancher.container.pull_image: always
 samba: 
   image: "safesystems/samba:latest"
+  log_opt:
+    max-size: 50m
+    max-file: 3
   labels: 
     io.rancher.container.hostname_override: container_name
     io.rancher.container.pull_image: always
