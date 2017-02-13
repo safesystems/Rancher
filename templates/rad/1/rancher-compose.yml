@@ -1,6 +1,6 @@
 .catalog:
   name: "SafeSytems_RAD"
-  version: "test-tag-only"
+  version: "TestTagOnly"
   description: "Safe Systems RAD Services"
   questions:
     - variable: "portscan_ip_exceptions"

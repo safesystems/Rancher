@@ -1,6 +1,6 @@
 .catalog:
   name: "SafeSytems_Logstash"
-  version: "Test-Test Tag Only"
+  version: "TestTagOnly"
   description: "Safe Systems Logstash"
   questions:
     - variable: "logstash_inputs"
