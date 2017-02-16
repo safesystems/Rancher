@@ -23,7 +23,7 @@
       required: false
       default: |
         mutate {
-          add_field => {"nc_id" => "${netcomply_id_var}"}
+          add_field => {"at_id" => "${netcomply_id_var}"}
           add_field => {"aws_queue_name" => "${aws_queue_name_var}"}
         }
     - variable: "logstash_outputs"
@@ -62,9 +62,9 @@
       default: ""
     - variable: "netcomply_id"
       description: |
-        The Netcomply ID of the Customer
-      label: "Netcomply Identifier"
-      default: "enter NC_ID"
+        The AT ID of the Customer
+      label: "AT ID"
+      default: "enter AT_ID"
       required: false
       type: "string"
     - variable: "service_location"
