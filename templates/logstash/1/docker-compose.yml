@@ -14,6 +14,7 @@ logstash:
   - logstash
   - -f
   - /etc/logstash/logstash.conf
+  - --debug
   image: safesystems/logstash:test
   stdin_open: true
   environment:
