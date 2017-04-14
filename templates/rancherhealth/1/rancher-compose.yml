@@ -1,0 +1,36 @@
+.catalog:
+  name: "Safe Systems Rancher Health Check"
+  version: "0.2-Production"
+  description: "Checks the health of Rancher environments. Sends syslog alerts"
+  questions:
+    - variable: "syslog_dest_host"
+      description: |
+        syslog network destination
+      label: "syslog_dest_host"
+      type: "string"
+      required: false
+      default: ""
+    - variable: "netcomply_id"
+      description: |
+        The AT ID of the Customer
+      label: "AT ID"
+      default: "enter AT_ID"
+      required: false
+      type: "string"
+    - variable: "service_location"
+      description: |
+        This is location where the service will be deployed.
+        This must match the location label value you entered for the host.
+      label: "Service Location"
+      type: "string"
+      required: false
+      default: |
+        Operations
+    - variable: "Safe_Systems_Service"
+      description: |
+        Safe Systems stack/service to add logstash to.
+        This is optional.
+      label: "Safe Systems stack/service (Optional)"
+      default: "choose a Safe Systems Service"
+      required: false
+      type: "service"
