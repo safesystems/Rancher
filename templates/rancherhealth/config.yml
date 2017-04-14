@@ -1,0 +1,7 @@
+name: Safe Systems Rancher Health Check
+description: |
+    Checks the health of rancher environments. Sends syslog message alerts.
+version: v0.1
+category: Monitoring
+maintainer: Reid Riley <reid.riley@safesystems.com>
+projectURL: http://www.safesystems.com
