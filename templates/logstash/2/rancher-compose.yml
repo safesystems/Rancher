@@ -75,7 +75,7 @@
       type: "string"
       required: false
       default: |
-        Operations
+        operations
     - variable: "Safe_Systems_Service"
       description: |
         Safe Systems stack/service to add logstash to.
