@@ -9,6 +9,7 @@ rancherhealth:
   environment:
     netcomply_id_var: "${netcomply_id}"
     syslog_dest_host_var: "${syslog_dest_host}"
+    rancher_api_key_var: "${rancher_api_key}"
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.container.pull_image: always

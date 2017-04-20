@@ -25,12 +25,12 @@
       type: "string"
       required: false
       default: |
-        Operations
-    - variable: "Safe_Systems_Service"
+        Suwannee
+    - variable: "rancher_api_key"
       description: |
-        Safe Systems stack/service to add logstash to.
-        This is optional.
-      label: "Safe Systems stack/service (Optional)"
-      default: "choose a Safe Systems Service"
-      required: false
-      type: "service"
+        Enter your base64 encoded rancher key.
+      label: "Base64 Rancher API Key"
+      type: "string"
+      required: true
+      default: |
+        ""
