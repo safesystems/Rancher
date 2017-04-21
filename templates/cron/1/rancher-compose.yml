@@ -1,7 +1,7 @@
 .catalog:
-  name: "Safe Systems Rancher Health Check"
-  version: "0.1-TestOnly"
-  description: "Checks the health of Rancher environments. Sends syslog alerts"
+  name: "Safe Systems Cron Scheduler"
+  version: "0.2-Production"
+  description: "Runs cron jobs and scripts. Sends syslog alerts"
   questions:
     - variable: "syslog_dest_host"
       description: |
@@ -26,11 +26,3 @@
       required: false
       default: |
         ""
-    - variable: "Safe_Systems_Service"
-      description: |
-        Safe Systems stack/service to add logstash to.
-        This is optional.
-      label: "Safe Systems stack/service (Optional)"
-      default: "choose a Safe Systems Service"
-      required: false
-      type: "service"

@@ -1,0 +1,7 @@
+name: Safe Systems Cron Scheduler
+description: |
+    Run cron jobs with syslog in container
+version: v0.1
+category: Monitoring
+maintainer: Reid Riley <reid.riley@safesystems.com>
+projectURL: http://www.safesystems.com

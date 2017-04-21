@@ -25,7 +25,7 @@
       type: "string"
       required: false
       default: |
-        suwannee
+        ""
     - variable: "rancher_api_key"
       description: |
         Enter your base64 encoded rancher key.
