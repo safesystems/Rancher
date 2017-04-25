@@ -28,6 +28,7 @@ portscan:
     - "/opt/safesystems/logs:/var/log/:rw"
   labels: 
     io.rancher.container.hostname_override: container_name
+    io.rancher.container.pull_image: always
 samba: 
   image: "safesystems/samba:test"
   log_opt:
