@@ -6,6 +6,7 @@ opencanary:
   labels: 
     io.rancher.container.hostname_override: container_name
     io.rancher.container.pull_image: always
+    io.rancher.scheduler.affinity:host_label: location=${service_location}
   tty: true
   ports: 
     - "21:21"
@@ -16,6 +17,7 @@ opencanary:
     - "/opt/safesystems/logs:/var/log:rw"
 portscan: 
   image: "safesystems/portscan:test"
+  privileged: true
   log_opt:
     max-size: 50m
     max-file: 3
@@ -28,6 +30,7 @@ portscan:
     - "/opt/safesystems/logs:/var/log/:rw"
   labels: 
     io.rancher.container.hostname_override: container_name
+    io.rancher.scheduler.affinity:host_label: location=${service_location}
     io.rancher.container.pull_image: always
 samba: 
   image: "safesystems/samba:test"
@@ -37,6 +40,7 @@ samba:
   labels: 
     io.rancher.container.hostname_override: container_name
     io.rancher.container.pull_image: always
+    io.rancher.scheduler.affinity:host_label: location=${service_location}
   tty: true
   ports: 
     - "139:139"
