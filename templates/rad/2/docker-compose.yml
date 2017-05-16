@@ -16,6 +16,7 @@ opencanary:
     - "/opt/safesystems/logs:/var/log:rw"
 portscan: 
   image: "safereg.azurecr.io/portscan:latest"
+  privileged: true
   log_opt:
     max-size: 50m
     max-file: 3
