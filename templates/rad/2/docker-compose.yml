@@ -1,0 +1,47 @@
+opencanary: 
+  image: "safereg.azurecr.io/opencanary:latest"
+  log_opt:
+    max-size: 50m
+    max-file: 3
+  labels: 
+    io.rancher.container.hostname_override: container_name
+    io.rancher.container.pull_image: always
+  tty: true
+  ports: 
+    - "21:21"
+    - "1433:1433"
+    - "3389:3389"
+  restart: always
+  volumes: 
+    - "/opt/safesystems/logs:/var/log:rw"
+portscan: 
+  image: "safereg.azurecr.io/portscan:latest"
+  log_opt:
+    max-size: 50m
+    max-file: 3
+  environment: 
+    portscan_exceptions_var: "${portscan_ip_exceptions}"
+  tty: true
+  net: host
+  restart: always
+  volumes: 
+    - "/opt/safesystems/logs:/var/log/:rw"
+  labels: 
+    io.rancher.container.hostname_override: container_name
+samba: 
+  image: "safereg.azurecr.io/samba:latest"
+  log_opt:
+    max-size: 50m
+    max-file: 3
+  labels: 
+    io.rancher.container.hostname_override: container_name
+    io.rancher.container.pull_image: always
+  tty: true
+  ports: 
+    - "139:139"
+    - "445:445"
+  restart: always
+  volumes: 
+    - "/opt/safesystems/logs/samba-audit.log:/var/log/samba-audit.log:rw"
+    - "/opt/safesystems/samba:/opt/safesystems/samba/:rw"
+    - "/opt/safesystems/logs/samba:/var/log/samba/:rw"

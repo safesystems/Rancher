@@ -1,0 +1,14 @@
+.catalog:
+  name: "SafeSystems_RAD"
+  version: "1.1-AzureRegistry"
+  description: "Safe Systems RAD Services"
+  questions:
+    - variable: "portscan_ip_exceptions"
+      description: |
+        These IP's will be excluded from being reported.
+        Separate each IP value with a comma.
+      label: "Portscan IP Exclusions"
+      type: "string"
+      required: false
+      default: |
+        204.193.139.159,8.8.8.8,4.4.4.4
