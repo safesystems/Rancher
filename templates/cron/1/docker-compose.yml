@@ -1,7 +1,7 @@
 cron:
   restart: always
   tty: true
-  image: safesystems/cron:latest
+  image: safereg.azurecr.io/cron:latest
   log_opt:
     max-size: 50m
     max-file: 3

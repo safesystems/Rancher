@@ -1,5 +1,5 @@
 opencanary: 
-  image: "safesystems/opencanary:test"
+  image: "safereg.azurecr.io/opencanary:test"
   log_opt:
     max-size: 50m
     max-file: 3
@@ -16,7 +16,7 @@ opencanary:
   volumes: 
     - "/opt/safesystems/logs:/var/log:rw"
 portscan: 
-  image: "safesystems/portscan:test"
+  image: "safereg.azurecr.io/portscan:test"
   privileged: true
   log_opt:
     max-size: 50m
@@ -33,7 +33,7 @@ portscan:
     io.rancher.scheduler.affinity:host_label: location=${service_location}
     io.rancher.container.pull_image: always
 samba: 
-  image: "safesystems/samba:test"
+  image: "safereg.azurecr.io/samba:test"
   log_opt:
     max-size: 50m
     max-file: 3

@@ -1,6 +1,6 @@
 logstash-config:
   restart: always
-  image: safesystems/logstash-config
+  image: safereg.azurecr.io/logstash-config
   log_opt:
     max-size: 50m
     max-file: 3
@@ -18,7 +18,7 @@ logstash:
   - logstash
   - -f
   - /etc/logstash/logstash.conf
-  image: safesystems/logstash:latest
+  image: safereg.azurecr.io/logstash:latest
   log_opt:
     max-size: 50m
     max-file: 3

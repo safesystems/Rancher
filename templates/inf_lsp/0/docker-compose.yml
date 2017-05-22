@@ -7,7 +7,7 @@ logstash:
   - logstash
   - -f
   - /etc/logstash/conf.d/
-  image: safesystems/logstash:latest
+  image: safereg.azurecr.io/logstash:latest
   stdin_open: true
   labels:
     io.rancher.container.hostname_override: container_name
