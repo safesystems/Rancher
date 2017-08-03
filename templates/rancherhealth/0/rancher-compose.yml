@@ -1,6 +1,6 @@
 .catalog:
   name: "Safe Systems Rancher Health Check"
-  version: "0.2-Production"
+  version: "0.1-Test"
   description: "Checks the health of Rancher environments. Sends syslog alerts"
   questions:
     - variable: "syslog_dest_host"
