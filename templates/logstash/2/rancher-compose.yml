@@ -25,6 +25,7 @@
         mutate {
           add_field => {"at_id" => "${netcomply_id_var}"}
           add_field => {"aws_queue_name" => "${aws_queue_name_var}"}
+          add_field => {"rad_location" => "${rad_location_var}"}
         }
     - variable: "logstash_outputs"
       description: |

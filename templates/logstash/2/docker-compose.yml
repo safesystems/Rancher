@@ -28,6 +28,7 @@ logstash:
     aws_access_id_var: "${aws_access_id}"
     aws_secret_access_key_var: "${aws_secret_access_key}"
     aws_queue_name_var: "${aws_queue_name}"
+    rad_location_var: "${service_location}"
   labels:
     io.rancher.sidekicks: logstash-config
     io.rancher.container.hostname_override: container_name
