@@ -13,6 +13,7 @@ ipsec-vpn-server:
     - "4500:4500/udp"
   restart: always
   privileged: true
+  net: bridge
   environment:
     VPN_IPSEC_PSK: "${var_ipsec_psk}"
     VPN_USER: "${var_username}"
