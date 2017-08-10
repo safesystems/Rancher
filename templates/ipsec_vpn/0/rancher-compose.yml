@@ -1,0 +1,38 @@
+.catalog:
+  name: "SafeSytems_Ipsec_VPN"
+  version: "1.1.0-safesystems"
+  description: "Safe Systems Ipsec VPN"
+  questions:
+    - variable: "var_ipsec_psk"
+      description: |
+        Enter your Pre-Shared Key
+      label: "Ipsec Pre-Shared Key"
+      type: "string"
+      required: false
+      default: |
+        Enter PSK
+    - variable: "var_username"
+      description: |
+        Enter a Username
+      label: "VPN Username"
+      type: "string"
+      required: false
+      default: |
+        Enter a Username
+    - variable: "var_password"
+      description: |
+        Enter your VPN User Password
+      label: "IVPN User Password"
+      type: "string"
+      required: false
+      default: |
+        Enter password
+    - variable: "service_location"
+      description: |
+        This is location where the service will be deployed.
+        This must match the location label value you entered for the host.
+      label: "Service Location"
+      type: "string"
+      required: false
+      default: |
+        Operations
