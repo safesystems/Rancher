@@ -12,7 +12,7 @@ ipsec-vpn-server:
     - "500:500/udp"
     - "4500:4500/udp"
   restart: always
-  priveledged: true
+  priviledged: true
   environment:
     VPN_IPSEC_PSK: "${var_ipsec_psk}"
     VPN_USER: "${var_username}"
