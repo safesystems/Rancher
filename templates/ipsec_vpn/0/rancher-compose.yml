@@ -22,7 +22,7 @@
     - variable: "var_password"
       description: |
         Enter your VPN User Password
-      label: "IVPN User Password"
+      label: "VPN User Password"
       type: "string"
       required: false
       default: |
