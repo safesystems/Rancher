@@ -1,0 +1,26 @@
+ipsec-vpn-server: 
+  image: "safereg.azurecr.io/s2s-vpn:test"
+  log_opt:
+    max-size: 50m
+    max-file: 3
+  labels: 
+    io.rancher.container.hostname_override: container_name
+    io.rancher.container.pull_image: always
+    io.rancher.scheduler.affinity:host_label: location=${service_location}
+  tty: true
+  ports: 
+    - "500:500/udp"
+    - "4500:4500/udp"
+  restart: always
+  privileged: true
+  net: bridge
+  environment:
+    VPN_IPSEC_PSK: "${var_ipsec_psk}"
+    LOCAL_INTERNAL_IP: "${var_local_internal_ip}"
+    LOCAL_PUBLIC_IP: "${var_local_public_ip}"
+    LOCAL_INTERNAL_SUBNET: "${var_local_internal_subnet}"
+    REMOTE_INTERNAL_IP: "${var_remote_internal_ip}"
+    REMOTE_PUBLIC_IP: "${var_remote_public_ip}"
+    REMOTE_INTERNAL_SUBNET: "${var_remote_internal_subnet}"
+  volumes: 
+    - "/lib/modules:/lib/modules:rw"
