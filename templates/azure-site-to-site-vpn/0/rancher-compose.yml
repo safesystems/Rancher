@@ -1,0 +1,70 @@
+.catalog:
+  name: "SafeSytems_Azure_Site_to_Site_VPN"
+  version: "1.1.0-safesystems-Test-Only"
+  description: "Safe Systems Azure Site to Site VPN"
+  questions:
+    - variable: "var_ipsec_psk"
+      description: |
+        Enter your Pre-Shared Key
+      label: "Ipsec Pre-Shared Key"
+      type: "string"
+      required: false
+      default: |
+        Enter PSK
+    - variable: "var_local_internal_ip"
+      description: |
+        Enter the internal ip address of the local vpn site
+      label: "Local Internal IP Address"
+      type: "string"
+      required: false
+      default: |
+        192.168.1.1
+    - variable: "var_local_public_ip"
+      description: |
+        Enter the public IP of the local vpn site
+      label: "Local Public IP"
+      type: "string"
+      required: false
+      default: |
+        66.194.109.125
+    - variable: "var_local_internal_subnet"
+      description: |
+        Enter the internal subnet of the local vpn site
+      label: "Local Internal Subnet"
+      type: "string"
+      required: false
+      default: |
+        192.168.1.0/24
+    - variable: "var_remote_internal_ip"
+      description: |
+        Enter the remote interal IP of the remote vpn site
+      label: "Remote Internal IP"
+      type: "string"
+      required: false
+      default: |
+        172.16.0.1
+    - variable: "var_remote_public_ip"
+      description: |
+        Enter the public IP of the remote vpn site
+      label: "Remote Public IP"
+      type: "string"
+      required: false
+      default: |
+        66.194.109.126
+    - variable: "var_remote_internal_subnet"
+      description: |
+        Enter the internal subnet of the remote vpn site
+      label: "Remote Internal Subnet"
+      type: "string"
+      required: false
+      default: |
+        172.16.0.0/24
+    - variable: "service_location"
+      description: |
+        This is location where the service will be deployed.
+        This must match the location label value you entered for the host.
+      label: "Service Location"
+      type: "string"
+      required: false
+      default: |
+        Operations
