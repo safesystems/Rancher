@@ -11,14 +11,6 @@
       required: false
       default: |
         Enter PSK
-    - variable: "var_local_internal_ip"
-      description: |
-        Enter the internal ip address of the local vpn site
-      label: "Local Internal IP Address"
-      type: "string"
-      required: false
-      default: |
-        192.168.1.1
     - variable: "var_local_public_ip"
       description: |
         Enter the public IP of the local vpn site
@@ -35,14 +27,6 @@
       required: false
       default: |
         192.168.1.0/24
-    - variable: "var_remote_internal_ip"
-      description: |
-        Enter the remote interal IP of the remote vpn site
-      label: "Remote Internal IP"
-      type: "string"
-      required: false
-      default: |
-        172.16.0.1
     - variable: "var_remote_public_ip"
       description: |
         Enter the public IP of the remote vpn site
