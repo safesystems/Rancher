@@ -8,10 +8,6 @@ ipsec-vpn-server:
     io.rancher.container.pull_image: always
     io.rancher.scheduler.affinity:host_label: location=${service_location}
   tty: true
-  ports: 
-    - "500:500/udp"
-    - "4500:4500/udp"
-    - "1-65500"
   restart: always
   privileged: true
   net: host
