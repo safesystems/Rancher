@@ -11,7 +11,7 @@ ipsec-vpn-server:
   ports: 
     - "500:500/udp"
     - "4500:4500/udp"
-    - "1-65500:1-65500"
+    - "1-65500"
   restart: always
   privileged: true
   net: host
