@@ -1,7 +1,0 @@
-name: Safe Systems Azure cloudrouter VPN
-description: |
-    Azure Cloudrouter VPN
-version: v0.1
-category: Networking
-maintainer: Reid Riley <reid.riley@safesystems.com>
-projectURL: http://www.safesystems.com
