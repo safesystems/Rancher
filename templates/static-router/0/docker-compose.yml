@@ -1,4 +1,4 @@
-static_router: 
+static-router: 
   image: "safereg.azurecr.io/cloudrouter:test"
   log_opt:
     max-size: 50m
