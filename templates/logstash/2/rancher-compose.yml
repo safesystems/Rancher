@@ -12,7 +12,9 @@
       required: false
       default: |
         file {
-          path => ["/opt/safesystems/logs/*"]
+          path => ["/opt/safesystems/logs/opencanary.log"]
+          path => ["/opt/safesystems/logs/samba-audit.log"]
+          path => ["/opt/safesystems/logs/scanlog"]
         }
     - variable: "logstash_filters"
       description: |
@@ -39,6 +41,7 @@
           queue => "${aws_queue_name_var}"
           access_key_id => "${aws_access_id_var}"
           secret_access_key => "${aws_secret_access_key_var}"
+          region => "us-east-1"
         }
     - variable: "aws_secret_access_key"
       description: |
