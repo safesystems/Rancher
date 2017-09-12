@@ -1,8 +1,12 @@
 logstash-config:
   restart: always
   image: safereg.azurecr.io/logstash-config
+  log_opt:
+    max-size: 50m
+    max-file: 3
   labels:
     io.rancher.container.hostname_override: container_name
+    io.rancher.scheduler.affinity:host_label: location=${service_location}
 logstash:
   restart: always
   tty: true
@@ -15,6 +19,9 @@ logstash:
   - -f
   - /etc/logstash/logstash.conf
   image: safereg.azurecr.io/logstash:test
+  log_opt:
+    max-size: 50m
+    max-file: 3
   stdin_open: true
   environment:
     netcomply_id_var: "${netcomply_id}"
@@ -26,3 +33,4 @@ logstash:
     io.rancher.sidekicks: logstash-config
     io.rancher.container.hostname_override: container_name
     io.rancher.container.pull_image: always
+    io.rancher.scheduler.affinity:host_label: location=${service_location}
