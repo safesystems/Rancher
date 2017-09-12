@@ -1,0 +1,22 @@
+ipsec-vpn-server: 
+  image: "hwdsl2/ipsec-vpn-server:latest"
+  log_opt:
+    max-size: 50m
+    max-file: 3
+  labels: 
+    io.rancher.container.hostname_override: container_name
+    io.rancher.container.pull_image: always
+    io.rancher.scheduler.affinity:host_label: location=${service_location}
+  tty: true
+  ports: 
+    - "500:500/udp"
+    - "4500:4500/udp"
+  restart: always
+  privileged: true
+  net: bridge
+  environment:
+    VPN_IPSEC_PSK: "${var_ipsec_psk}"
+    VPN_USER: "${var_username}"
+    VPN_PASSWORD: "${var_password}"
+  volumes: 
+    - "/lib/modules:/lib/modules:rw"

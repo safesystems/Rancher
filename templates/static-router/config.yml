@@ -1,0 +1,7 @@
+name: Safe Systems Router - Static
+description: |
+    Safe Systems Static Route Router
+version: v0.1
+category: Networking
+maintainer: Reid Riley <reid.riley@safesystems.com>
+projectURL: http://www.safesystems.com
