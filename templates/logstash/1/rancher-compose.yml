@@ -41,7 +41,7 @@
           queue => "${aws_queue_name_var}"
           access_key_id => "${aws_access_id_var}"
           secret_access_key => "${aws_secret_access_key_var}"
-          codec => "json"
+          region => "us-east-1"
         }
     - variable: "aws_secret_access_key"
       description: |
