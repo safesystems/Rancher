@@ -18,6 +18,7 @@ logstash:
   - logstash
   - -f
   - /etc/logstash/logstash.conf
+  - --debug
   image: safereg.azurecr.io/logstash:test
   log_opt:
     max-size: 50m
