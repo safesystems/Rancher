@@ -14,10 +14,10 @@ logstash:
   - logstash-config
   volumes:
     - /opt/safesystems/logs:/opt/safesystems/logs
-  #command:
-  #- logstash
-  #- -f
-  #- /etc/logstash/logstash.conf
+  command:
+  - logstash
+  - -f
+  - /etc/logstash/logstash.conf
   #- --log.level=debug
   image: safereg.azurecr.io/logstash:test
   log_opt:
