@@ -13,7 +13,6 @@
       default: |
         file {
           path => ["/opt/safesystems/logs/*"]
-          codec => "json"
         }
     - variable: "logstash_filters"
       description: |
