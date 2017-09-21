@@ -12,7 +12,9 @@
       required: false
       default: |
         file {
-          path => ["/opt/safesystems/logs/*"]
+          path => ["/opt/safesystems/logs/opencanary.log"]
+          path => ["/opt/safesystems/logs/samba-audit.log"]
+          path => ["/opt/safesystems/logs/scanlog"]
         }
     - variable: "logstash_filters"
       description: |
@@ -23,7 +25,7 @@
       required: false
       default: |
         mutate {
-          add_field => {"nc_id" => "${netcomply_id_var}"}
+          add_field => {"at_id" => "${netcomply_id_var}"}
           add_field => {"aws_queue_name" => "${aws_queue_name_var}"}
           add_field => {"rad_location" => "${rad_location_var}"}
         }
@@ -39,7 +41,7 @@
           queue => "${aws_queue_name_var}"
           access_key_id => "${aws_access_id_var}"
           secret_access_key => "${aws_secret_access_key_var}"
-          codec => "json"
+          region => "us-east-1"
         }
     - variable: "aws_secret_access_key"
       description: |
@@ -64,9 +66,9 @@
       default: ""
     - variable: "netcomply_id"
       description: |
-        The Netcomply ID of the Customer
-      label: "Netcomply Identifier"
-      default: "enter NC_ID"
+        The AT ID of the Customer
+      label: "AT ID"
+      default: "enter AT_ID"
       required: false
       type: "string"
     - variable: "service_location"
