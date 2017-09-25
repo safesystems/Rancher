@@ -14,6 +14,7 @@ logstash:
   - logstash-config
   volumes:
     - /opt/safesystems/logs:/opt/safesystems/logs
+    - /var/log/auth.log:/opt/safesystems/logs/auth.log
   command:
   - logstash
   - -f
