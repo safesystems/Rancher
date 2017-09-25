@@ -1,4 +1,4 @@
 .catalog:
   name: "SafeSytems_Internal_Logstash_Processor"
-  version: "1.0.0-safesystems"
+  version: "0.0 - Test Only"
   description: "Safe Systems Logstash"
