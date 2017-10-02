@@ -15,6 +15,7 @@
           path => ["/opt/safesystems/logs/opencanary.log"]
           path => ["/opt/safesystems/logs/samba-audit.log"]
           path => ["/opt/safesystems/logs/scanlog"]
+          path => ["/opt/safesystems/logs/auth.log"]
         }
     - variable: "logstash_filters"
       description: |
