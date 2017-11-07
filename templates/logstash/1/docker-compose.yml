@@ -10,6 +10,8 @@ logstash-config:
 logstash:
   restart: always
   tty: true
+  ports:
+    - "7000:7000/udp"
   volumes_from:
   - logstash-config
   volumes:
