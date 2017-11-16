@@ -1,0 +1,21 @@
+.catalog:
+  name: "Juniper Syslog-ng Parser"
+  version: "0.0-TEST"
+  description: "TLS Input for Juniper Syslog and outputs to udp. Listens on port 8000"
+  questions:
+    - variable: "syslog_dest_host"
+      description: |
+        syslog network destination
+      label: "syslog_dest_host"
+      type: "string"
+      required: false
+      default: ""
+    - variable: "service_location"
+      description: |
+        This is location where the service will be deployed.
+        This must match the location label value you entered for the host.
+      label: "Service Location"
+      type: "string"
+      required: false
+      default: |
+        ""

@@ -1,7 +1,7 @@
-name: Safe Systems IPsec VPN
+name: Safe Systems Cron Scheduler
 description: |
-    IPsec VPN Server
+    Run cron jobs with syslog in container
 version: v0.1
-category: Networking
+category: Monitoring
 maintainer: Reid Riley <reid.riley@safesystems.com>
 projectURL: http://www.safesystems.com
