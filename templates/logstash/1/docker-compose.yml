@@ -10,10 +10,13 @@ logstash-config:
 logstash:
   restart: always
   tty: true
+  ports:
+    - "7000:7000/udp"
   volumes_from:
   - logstash-config
   volumes:
     - /opt/safesystems/logs:/opt/safesystems/logs
+    - /var/log/auth.log:/opt/safesystems/logs/auth.log
   command:
   - logstash
   - -f
