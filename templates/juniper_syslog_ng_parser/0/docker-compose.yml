@@ -1,4 +1,4 @@
-juniper_parser:
+juniperparser:
   restart: always
   tty: true
   image: safereg.azurecr.io/juniper_parser:test
