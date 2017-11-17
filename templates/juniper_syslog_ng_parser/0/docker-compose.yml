@@ -6,7 +6,6 @@ juniper_parser:
     max-size: 50m
     max-file: 3
   stdin_open: true
-  ports:
   environment:
     syslog_dest_host_var: "${syslog_dest_host}"
   labels:
