@@ -1,6 +1,6 @@
 name: Safe Systems Juniper Log Parser
 description: |
-    Runs Syslog-ng as a TLS endpoint on port 8000, parses logs, and sends UDP to Log Collector
+    Runs SyslogNG as a TLS endpoint on port 8000, parses logs, and sends UDP
 version: v0.1
 category: Monitoring
 maintainer: Reid Riley <reid.riley@safesystems.com>

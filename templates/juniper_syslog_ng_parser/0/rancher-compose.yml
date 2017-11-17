@@ -1,5 +1,5 @@
 .catalog:
-  name: "Juniper Syslog-ng Parser"
+  name: "Juniper SyslogNG Parser"
   version: "0.0-TEST"
   description: "TLS Input for Juniper Syslog and outputs to udp. Listens on port 8000"
   questions:
