@@ -1,6 +1,6 @@
-name: Safe Systems Cron Scheduler
+name: Safe Systems Juniper Log Parser
 description: |
-    Run cron jobs with syslog in container
+    Runs Syslog-ng as a TLS endpoint on port 8000, parses logs, and sends UDP to Log Collector
 version: v0.1
 category: Monitoring
 maintainer: Reid Riley <reid.riley@safesystems.com>
