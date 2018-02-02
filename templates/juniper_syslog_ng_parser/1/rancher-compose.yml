@@ -1,16 +1,15 @@
 .catalog:
-  name: "SafeSytems_Site_to_Site_VPN"
-  version: "1.1.0-safesystems-Test-Only"
-  description: "Safe Systems Site to Site VPN"
+  name: "Juniper SyslogNG Parser"
+  version: "1.0-Production"
+  description: "TLS Input for Juniper Syslog and outputs to udp. Listens on port 8000"
   questions:
-    - variable: "var_static_route_table"
+    - variable: "syslog_dest_host"
       description: |
-        Enter your static routes
-      label: "Static Route Table"
-      type: "multiline"
+        syslog network destination
+      label: "syslog_dest_host"
+      type: "string"
       required: false
-      default: |
-        Enter PSK
+      default: ""
     - variable: "service_location"
       description: |
         This is location where the service will be deployed.
@@ -19,4 +18,4 @@
       type: "string"
       required: false
       default: |
-        Operations
+        ""

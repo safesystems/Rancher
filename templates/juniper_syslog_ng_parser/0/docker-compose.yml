@@ -1,0 +1,14 @@
+juniperparser:
+  restart: always
+  tty: true
+  image: safereg.azurecr.io/juniper_parser:test
+  log_opt:
+    max-size: 50m
+    max-file: 3
+  stdin_open: true
+  environment:
+    syslog_dest_host_var: "${syslog_dest_host}"
+  labels:
+    io.rancher.container.hostname_override: container_name
+    io.rancher.container.pull_image: always
+    io.rancher.scheduler.affinity:host_label: location=${service_location}
