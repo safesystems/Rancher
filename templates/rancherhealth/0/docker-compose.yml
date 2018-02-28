@@ -1,7 +1,7 @@
 rancherhealth:
   restart: always
   tty: true
-  image: safereg.azurecr.io/rancherhealth:test
+  image: safesysreg.azurecr.io/rancherhealth:test
   log_opt:
     max-size: 50m
     max-file: 3

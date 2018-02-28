@@ -1,6 +1,6 @@
 logstash-config:
   restart: always
-  image: safereg.azurecr.io/logstash-config
+  image: safesysreg.azurecr.io/logstash-config
   log_opt:
     max-size: 50m
     max-file: 3
@@ -24,7 +24,7 @@ logstash:
   - --log.level=debug
   - -l
   - /var/log/logstash
-  image: safereg.azurecr.io/logstash:test
+  image: safesysreg.azurecr.io/logstash:test
   log_opt:
     max-size: 50m
     max-file: 3

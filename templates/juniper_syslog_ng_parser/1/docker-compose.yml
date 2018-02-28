@@ -1,7 +1,7 @@
 juniper_parser:
   restart: always
   tty: true
-  image: safereg.azurecr.io/juniper_parser:latest
+  image: safesysreg.azurecr.io/juniper_parser:latest
   log_opt:
     max-size: 50m
     max-file: 3
