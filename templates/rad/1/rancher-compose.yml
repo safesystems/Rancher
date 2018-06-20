@@ -12,6 +12,14 @@
       required: false
       default: |
         204.193.139.159,8.8.8.8,4.4.4.4,208.67.222.222,208.67.220.220
+    - variable: "portscan_bind_interface"
+      description: |
+        This is the ethernet interface the script should bind to.
+      label: "Ethernet Interface"
+      type: "string"
+      required: false
+      default: |
+        eth0
     - variable: "service_location"
       description: |
         This is location where the service will be deployed.
